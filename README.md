@@ -4,68 +4,67 @@
 
 ## 📌 Project Overview
 
-This project focuses on analyzing sales performance for Sedukopi, a coffee shop business dataset, using Google BigQuery SQL and Microsoft Power BI.
+This project analyzes Sedukopi's sales data to understand business performance across transactions, products, outlets, and payment methods.
 
-The analysis aims to understand overall sales performance, monthly revenue trends, product performance, outlet contributions, and customer payment preferences.
+The data was processed and analyzed using SQL in Google BigQuery, then presented through an interactive dashboard built with Microsoft Power BI.
 
-Through SQL queries and interactive data visualization, this project transforms raw sales data into meaningful business insights and actionable recommendations.
+The main objective is to identify sales patterns, evaluate business performance, and provide practical recommendations based on the findings.
 
 ## 🎯 Business Objectives
 
-The main objectives of this project are:
+This analysis focuses on five business questions:
 
-- Evaluate overall sales performance and revenue.
-- Identify monthly revenue trends and fluctuations.
-- Determine the highest-revenue products.
-- Compare sales performance across different outlets.
-- Analyze customer payment method preferences.
-- Provide business recommendations based on data findings.
+1. How much revenue does Sedukopi generate, and how many transactions are recorded?
+2. How does monthly revenue change over time?
+3. Which products generate the highest revenue?
+4. Which outlets contribute the most to total sales?
+5. Which payment methods are most frequently used by customers?
 
 ## 🛠️ Tools & Technologies
 
 | Tool | Purpose |
 |---|---|
-| Google BigQuery | SQL data analysis and querying |
-| SQL | Data aggregation, filtering, joining, and analysis |
-| Microsoft Power BI | Interactive dashboard and visualization |
-| GitHub | Project documentation and portfolio |
+| Google BigQuery | Data processing and SQL analysis |
+| SQL | Data querying, aggregation, and joining |
+| Microsoft Power BI | Dashboard development and visualization |
+| GitHub | Project documentation and version control |
 
 ## 📂 Dataset Overview
 
-The dataset contains sales transaction information from Sedukopi.
+The dataset contains Sedukopi sales transactions and information about orders, products, outlets, and payment methods.
 
-**Main data attributes:**
+**Main tables:**
 
-- Order ID
-- Order Date
-- Payment Method
-- Outlet ID and Outlet Name
-- City
-- Product Name
-- Product Category
-- Quantity
-- Unit Price
-- Subtotal
+- `orders`: Transaction dates, payment methods, outlet information, and total amounts.
+- `order_details`: Product details, quantities, and subtotals.
+- `menu_items`: Product names and categories.
+- `outlets`: Outlet names and locations.
 
-A SQL View named `vw_sales_detail` was created to combine relevant sales, outlet, and product information for analysis.
+A BigQuery View named `vw_sales_detail` was created to combine relevant transaction, product, and outlet information for further analysis.
+
+**Dataset Summary:**
+
+| Metric | Result |
+|---|---:|
+| Total Transactions | 5,000 |
+| Total Items Sold | 10,214 |
 
 ## 🔍 SQL Analysis
 
-The analysis consists of six main queries:
+Six SQL queries were developed to analyze different aspects of Sedukopi's sales performance.
 
-| No. | SQL Analysis | Business Purpose |
+| No. | Analysis | Purpose |
 |---|---|---|
-| 01 | Overall Sales Analysis | Measure total revenue, transactions, and average order value |
-| 02 | Monthly Sales Trend | Analyze monthly revenue development |
+| 01 | Overall Sales Analysis | Calculate total revenue, transactions, and AOV |
+| 02 | Monthly Sales Trend | Analyze monthly revenue changes |
 | 03 | Product Performance | Identify top-performing products |
-| 04 | Outlet Performance | Compare revenue and transactions across outlets |
-| 05 | Payment Method Analysis | Evaluate payment preferences and revenue contributions |
-| 06 | Detailed Product Performance | Compare product revenue, quantity sold, and transactions |
+| 04 | Outlet Performance | Compare sales across outlets |
+| 05 | Payment Method Analysis | Analyze transactions and revenue by payment method |
+| 06 | Detailed Product Performance | Compare product revenue and sales volume |
 
 **SQL techniques used:**
 
-- SELECT and WHERE
-- SUM(), COUNT(), AVG()
+- SELECT, SUM(), COUNT(), and AVG()
 - COUNT(DISTINCT)
 - GROUP BY and ORDER BY
 - DATE_TRUNC()
@@ -77,28 +76,38 @@ The analysis consists of six main queries:
 
 ### 1. Overall Sales Performance
 
-- Total Revenue: **Rp392,905,000**
-- Total Transactions: **5,000**
-- Total Items Sold: **10,214**
-- Average Order Value (AOV): **Rp78,581**
+| Metric | Result |
+|---|---:|
+| Total Revenue | Rp392,905,000 |
+| Total Transactions | 5,000 |
+| Items Sold | 10,214 |
+| Average Order Value (AOV) | Rp78,581 |
 
-**Key Insight:**
+**Key Findings:**
 
-Sedukopi generated Rp392.9 million in revenue from 5,000 transactions. Customers purchased approximately 2.04 items per transaction on average.
+- Sedukopi generated Rp392.9 million in total revenue.
+- A total of 5,000 transactions were recorded.
+- Customers purchased an average of 2.04 items per transaction.
 
-### 2. Monthly Revenue Trend
+**Business Insight:**
 
-- Monthly revenue generally shows an upward trend throughout the observation period.
-- Revenue fluctuates across different months.
-- A noticeable increase appears near the beginning of 2025.
+The average purchase of 2.04 items per transaction indicates an opportunity to increase customer spending through complementary products and bundle offers.
 
-**Key Insight:**
+### 2. Monthly Sales Trend
 
-The business demonstrates positive revenue development, although further investigation is needed to understand the factors behind monthly fluctuations and the significant increase in early 2025.
+**Key Findings:**
+
+- Monthly revenue fluctuated throughout the observation period.
+- Overall, revenue showed an upward trend.
+- A noticeable increase occurred near the beginning of 2025.
+
+**Business Insight:**
+
+Revenue growth should be evaluated alongside transaction volume and AOV to understand whether the increase comes from more transactions or higher spending per transaction.
 
 ### 3. Product Performance
 
-The Top 10 products by revenue include:
+The following are the top 10 products based on revenue:
 
 | Product | Quantity Sold | Revenue |
 |---|---:|---:|
@@ -117,8 +126,12 @@ The Top 10 products by revenue include:
 
 - Club Sandwich generated the highest revenue at Rp11.95 million.
 - Croissant Butter recorded the highest sales volume at 176 units.
-- All Top 10 products belong to the Food category.
-- The Top 10 products generated a combined revenue of Rp95.57 million, approximately 24.33% of total revenue.
+- All top 10 products belong to the Food category.
+- The top 10 products generated Rp95.57 million, representing approximately 24.33% of total revenue.
+
+**Business Insight:**
+
+The product with the highest revenue is not necessarily the product with the highest sales volume. Both metrics are important when evaluating product performance and inventory priorities.
 
 ### 4. Outlet Performance
 
@@ -138,6 +151,10 @@ The five highest-revenue outlets are:
 - The five highest-revenue outlets generated Rp121.95 million combined.
 - These outlets contributed approximately 31.04% of total revenue.
 
+**Business Insight:**
+
+Senopati can be used as a reference for evaluating other outlets. However, revenue alone is not enough to measure outlet performance. Transaction volume, AOV, and operating costs should also be considered.
+
 ### 5. Payment Method Analysis
 
 | Payment Method | Transactions | Revenue | AOV |
@@ -150,27 +167,73 @@ The five highest-revenue outlets are:
 
 **Key Findings:**
 
-- QRIS generated the highest revenue at Rp101.51 million.
-- GoPay ranked second with Rp94.33 million.
-- QRIS and GoPay accounted for approximately 49.84% of total revenue.
-- QRIS, GoPay, and OVO contributed approximately 69.57% of total revenue.
+- QRIS recorded the highest transaction volume and revenue.
+- GoPay ranked second in revenue.
+- QRIS and GoPay contributed approximately 49.84% of total revenue.
+- Digital payment methods (QRIS, GoPay, and OVO) contributed approximately 69.57% of total revenue.
 - QRIS recorded the highest AOV at Rp80,180.
+
+**Business Insight:**
+
+Digital payments play an important role in Sedukopi's sales, particularly QRIS and GoPay. These payment methods account for a substantial share of total revenue.
 
 ## 💡 Business Recommendations
 
-Based on the analysis, the following recommendations are proposed:
+Based on the findings, the following actions could help Sedukopi improve its sales performance and business operations.
 
-| Business Area | Recommendations |
-|---|---|
-| Overall Sales | Introduce product bundling, cross-selling, and upselling strategies to increase average transaction value. |
-| Monthly Revenue | Investigate high- and low-performing months to identify potential seasonal patterns and promotional opportunities. |
-| Product Performance | Maintain sufficient inventory for high-revenue products and evaluate products using both revenue and quantity sold. |
-| Outlet Performance | Analyze high-performing outlets, particularly Senopati, and identify opportunities to improve other outlets. |
-| Payment Methods | Maintain QRIS and e-wallet availability while evaluating the effectiveness of digital payment promotions. |
+### 1. Increase Average Transaction Value
+
+**Finding:** Customers purchased an average of 2.04 items per transaction, with an AOV of Rp78,581.
+
+**Recommendation:**
+
+Sedukopi could test food and beverage bundles to encourage customers to purchase additional items. For example, Club Sandwich could be offered together with selected beverages at an attractive package price.
+
+The results can be evaluated by comparing AOV and average items per transaction before and after the promotion.
+
+### 2. Investigate Monthly Revenue Changes
+
+**Finding:** Monthly revenue showed an overall upward trend, although fluctuations occurred throughout the observation period.
+
+**Recommendation:**
+
+Sedukopi should compare monthly revenue with transaction volume and AOV to identify the main drivers of sales changes.
+
+Months with higher revenue can be reviewed to understand which sales activities or conditions contributed to the increase. This information can help management plan future sales strategies more effectively.
+
+### 3. Improve Product and Inventory Planning
+
+**Finding:** Club Sandwich generated the highest revenue, while Croissant Butter recorded the highest sales volume.
+
+**Recommendation:**
+
+Both products should receive attention when reviewing inventory priorities. Club Sandwich is important because of its revenue contribution, while Croissant Butter deserves attention because of its higher sales volume.
+
+Sedukopi should combine sales data with stock levels and product margins to determine appropriate inventory quantities and reduce the risk of stock shortages.
+
+### 4. Evaluate Outlet Performance
+
+**Finding:** Senopati recorded the highest revenue at Rp25.53 million.
+
+**Recommendation:**
+
+Sedukopi could compare Senopati's transaction volume and AOV with other outlets to identify differences in sales performance.
+
+If Senopati demonstrates stronger performance after considering operating conditions, its sales practices could be evaluated for potential application at other outlets.
+
+### 5. Maintain and Evaluate Digital Payment Methods
+
+**Finding:** QRIS and GoPay contributed approximately 49.84% of total revenue.
+
+**Recommendation:**
+
+Sedukopi should maintain the availability of QRIS and e-wallet payments across its outlets.
+
+The company could also evaluate transaction fees and test selected digital payment promotions to determine whether they generate additional sales and sufficient financial benefits.
 
 ## 📈 Power BI Dashboard
 
-The Power BI dashboard provides a visual overview of Sedukopi's sales performance.
+An interactive Power BI dashboard was developed to provide a visual overview of Sedukopi's sales performance.
 
 **Dashboard Highlights:**
 
@@ -181,17 +244,18 @@ The Power BI dashboard provides a visual overview of Sedukopi's sales performanc
 - Monthly Revenue Trend
 - Top 10 Products by Revenue
 
-![Sedukopi Dashboard](Dashboard_Preview.png)
+![Sedukopi Sales Dashboard](Dashboard_Preview.png)
 
 ## 📁 Project Files
 
-All project files are available below:
+All project files are available in this repository.
 
-- 📊 [Download Power BI Dashboard (.pbix)](Power%20BI/Sedukopi_Sales_Analysis.pbix)
-- 🖼️ [View Dashboard Preview](Dashboard_Preview.png)
-- 🗄️ [Browse SQL Queries](SQL/)
+**Power BI Dashboard:**
 
-### SQL Scripts
+- [Download Power BI Dashboard (.pbix)](Power%20BI/Sedukopi_Sales_Analysis.pbix)
+- [View Dashboard Preview (.png)](Dashboard_Preview.png)
+
+**SQL Scripts:**
 
 1. [Overall Sales Analysis](SQL/01_Overall_Sales_Analysis.sql)
 2. [Monthly Sales Trend](SQL/02_Monthly_Sales_Trend.sql)
@@ -202,26 +266,29 @@ All project files are available below:
 
 ## 🎯 Project Conclusion
 
-This project demonstrates how SQL and Power BI can be used together to analyze business performance and support data-driven decision-making.
+This project demonstrates how SQL and Power BI can be used together to analyze sales performance and generate business insights.
 
-The findings highlight the importance of monitoring revenue trends, product performance, outlet contributions, and payment preferences.
+The analysis highlights important aspects of Sedukopi's business, including revenue trends, product performance, outlet contributions, and customer payment preferences.
 
-The analysis also provides opportunities for further investigation, including customer purchasing behavior, product profitability, and inventory optimization.
+The findings provide a starting point for evaluating sales strategies, product availability, outlet performance, and payment methods.
+
+Through this project, I gained practical experience in SQL querying, data analysis, dashboard development, and translating data findings into business recommendations.
 
 ## ⚠️ Notes & Limitations
 
-- Revenue is calculated using the dataset's subtotal field and should not be interpreted as net profit.
-- The analysis is based on the available dataset and does not establish causal relationships.
-- Business recommendations are proposed based on observed sales patterns and require further validation using operational data.
+- Revenue represents recorded sales amounts, not net profit. Product costs and operating expenses are not included.
+- Revenue reconciliation between `orders.total_amount` and `order_details.subtotal` resulted in Rp392,905,000 across 5,000 transactions, with no recorded differences.
+- The analysis identifies sales patterns but does not establish cause-and-effect relationships.
+- Inventory and operating cost data are not available, so product profitability and outlet efficiency cannot be fully evaluated.
+- Business recommendations are proposed based on the available dataset and require further evaluation using operational data.
+- Query 06 requires the BigQuery View `vw_sales_detail` to exist before execution.
 
 ## 👨‍💻 Author
 
 **Iqbal Baihaqy**
 
-Aspiring Data Analyst | Data Analytics Enthusiast
+Aspiring Data Analyst
 
 - GitHub: [@balemorn](https://github.com/balemorn)
-- Tools: Google BigQuery SQL, Microsoft Power BI
-- Skills: SQL Analysis, Data Visualization, Business Intelligence, Data Cleaning, and Business Insights.
-
-This project is part of my data analytics portfolio, demonstrating my ability to transform raw data into meaningful business insights and actionable recommendations.
+- Tools: Google BigQuery SQL | Microsoft Power BI
+- Skills: SQL Analysis | Data Visualization | Business Intelligence | Business Insights
