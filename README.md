@@ -183,6 +183,23 @@ The Power BI dashboard provides a visual overview of Sedukopi's sales performanc
 
 ![Sedukopi Dashboard](Dashboard_Preview.png)
 
+## 📁 Project Files
+
+All project files are available below:
+
+- 📊 [Download Power BI Dashboard (.pbix)](Power%20BI/Sedukopi_Sales_Analysis.pbix)
+- 🖼️ [View Dashboard Preview](Dashboard_Preview.png)
+- 🗄️ [Browse SQL Queries](SQL/)
+
+### SQL Scripts
+
+1. [Overall Sales Analysis](SQL/01_Overall_Sales_Analysis.sql)
+2. [Monthly Sales Trend](SQL/02_Monthly_Sales_Trend.sql)
+3. [Product Performance](SQL/03_Product_Performance.sql)
+4. [Outlet Performance](SQL/04_Branch_Performance.sql)
+5. [Payment Method Analysis](SQL/05_Payment_Method_Analysis.sql)
+6. [Detailed Product Performance](SQL/06_Product_Performance_Detail.sql)
+
 ## 🎯 Project Conclusion
 
 This project demonstrates how SQL and Power BI can be used together to analyze business performance and support data-driven decision-making.
@@ -199,8 +216,12 @@ The analysis also provides opportunities for further investigation, including cu
 
 ## 👨‍💻 Author
 
-**Data Analytics Portfolio Project**
+**Iqbal Baihaqy**
 
-Tools: Google BigQuery SQL | Microsoft Power BI
+Aspiring Data Analyst | Data Analytics Enthusiast
 
-Skills: SQL Analysis | Data Visualization | Business Intelligence | Business Insights | Data-Driven Recommendations
+- GitHub: [@balemorn](https://github.com/balemorn)
+- Tools: Google BigQuery SQL, Microsoft Power BI
+- Skills: SQL Analysis, Data Visualization, Business Intelligence, Data Cleaning, and Business Insights.
+
+This project is part of my data analytics portfolio, demonstrating my ability to transform raw data into meaningful business insights and actionable recommendations.
