@@ -181,7 +181,7 @@ The Power BI dashboard provides a visual overview of Sedukopi's sales performanc
 - Monthly Revenue Trend
 - Top 10 Products by Revenue
 
-![Sedukopi Dashboard](Dashboard/Dashboard_Preview.png)
+![Sedukopi Dashboard](Dashboard_Preview.png)
 
 ## 🎯 Project Conclusion
 
