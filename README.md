@@ -31,23 +31,37 @@ This analysis focuses on five business questions:
 
 ## 📂 Dataset Overview
 
-The dataset contains Sedukopi sales transactions and information about orders, products, outlets, and payment methods.
+This project uses the **Sedukopi: Jaringan Kedai Kopi** dataset from NgulikData. The dataset represents a fictional coffee shop business with 20 outlets across different cities in Indonesia.
 
-**Main tables:**
+**Dataset Information:**
 
-- `orders`: Transaction dates, payment methods, outlet information, and total amounts.
-- `order_details`: Product details, quantities, and subtotals.
-- `menu_items`: Product names and categories.
-- `outlets`: Outlet names and locations.
+| Description | Details |
+|---|---|
+| Dataset Name | Sedukopi: Jaringan Kedai Kopi |
+| Source | NgulikData Dataset Pack |
+| Total Records | 13,343 rows |
+| Total Tables | 5 |
+| Observation Period | January 1, 2022 – March 31, 2025 |
+| Number of Outlets | 20 |
+| Dataset Type | Simulated Business Data |
 
-A BigQuery View named `vw_sales_detail` was created to combine relevant transaction, product, and outlet information for further analysis.
+**Dataset Tables:**
 
-**Dataset Summary:**
+| Table | Records | Description |
+|---|---:|---|
+| `orders` | 5,000 | Sales transaction records |
+| `order_details` | 8,123 | Product details for each transaction |
+| `menu_items` | 80 | Product and category information |
+| `outlets` | 20 | Outlet names and locations |
+| `staff` | 120 | Employee information |
 
-| Metric | Result |
-|---|---:|
-| Total Transactions | 5,000 |
-| Total Items Sold | 10,214 |
+The main analysis uses four tables: `orders`, `order_details`, `menu_items`, and `outlets`. The `staff` table is available but was not included in this project.
+
+A BigQuery View named `vw_sales_detail` was created to combine transaction, product, and outlet information for further analysis.
+
+**Dataset Source:** [NgulikData – Sedukopi Dataset](https://ngulikdata.com/datasets/sedukopi)
+
+This project uses the dataset for educational and portfolio purposes.
 
 ## 🔍 SQL Analysis
 
