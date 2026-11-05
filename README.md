@@ -313,7 +313,7 @@ Through this project, I gained practical experience in SQL querying, data analys
 
 ## 👨‍💻 Author
 
-**Iqbal Baihaqy**
+**Hafizh Iqbal Baihaqy**
 
 - GitHub: [@balemorn](https://github.com/balemorn)
 - Tools: Google BigQuery SQL | Microsoft Power BI
