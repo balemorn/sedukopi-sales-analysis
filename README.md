@@ -62,6 +62,20 @@ Six SQL queries were developed to analyze different aspects of Sedukopi's sales 
 | 05 | Payment Method Analysis | Analyze transactions and revenue by payment method |
 | 06 | Detailed Product Performance | Compare product revenue and sales volume |
 
+### SQL Execution Order
+
+To reproduce this analysis, run the SQL scripts in the following order:
+
+1. `00_Create_Sales_View.sql` – Create the sales detail view.
+2. `01_Overall_Sales_Analysis.sql` – Calculate overall sales metrics.
+3. `02_Monthly_Sales_Trend.sql` – Analyze monthly revenue trends.
+4. `03_Product_Performance.sql` – Identify top-performing products.
+5. `04_Branch_Performance.sql` – Compare outlet performance.
+6. `05_Payment_Method_Analysis.sql` – Analyze payment method preferences.
+7. `06_Product_Performance_Detail.sql` – Analyze detailed product performance.
+
+**Note:** Run the first script before executing queries that use `vw_sales_detail`.
+
 **SQL techniques used:**
 
 - SELECT, SUM(), COUNT(), and AVG()
@@ -85,25 +99,24 @@ Six SQL queries were developed to analyze different aspects of Sedukopi's sales 
 
 **Key Findings:**
 
-- Sedukopi generated Rp392.9 million in total revenue.
-- A total of 5,000 transactions were recorded.
+- Sedukopi generated Rp392.9 million in revenue from 5,000 transactions.
 - Customers purchased an average of 2.04 items per transaction.
 
 **Business Insight:**
 
-The average purchase of 2.04 items per transaction indicates an opportunity to increase customer spending through complementary products and bundle offers.
+The average of 2.04 items per transaction suggests an opportunity to increase purchase value through product bundling and cross-selling.
 
 ### 2. Monthly Sales Trend
 
 **Key Findings:**
 
 - Monthly revenue fluctuated throughout the observation period.
-- Overall, revenue showed an upward trend.
+- Overall revenue showed an upward trend.
 - A noticeable increase occurred near the beginning of 2025.
 
 **Business Insight:**
 
-Revenue growth should be evaluated alongside transaction volume and AOV to understand whether the increase comes from more transactions or higher spending per transaction.
+The increase in revenue is worth investigating further. Comparing monthly transaction volume and AOV can help identify whether the growth came from more transactions or higher spending per transaction.
 
 ### 3. Product Performance
 
@@ -127,11 +140,11 @@ The following are the top 10 products based on revenue:
 - Club Sandwich generated the highest revenue at Rp11.95 million.
 - Croissant Butter recorded the highest sales volume at 176 units.
 - All top 10 products belong to the Food category.
-- The top 10 products generated Rp95.57 million, representing approximately 24.33% of total revenue.
+- The top 10 products generated Rp95.57 million, accounting for approximately 24.33% of total revenue.
 
 **Business Insight:**
 
-The product with the highest revenue is not necessarily the product with the highest sales volume. Both metrics are important when evaluating product performance and inventory priorities.
+Club Sandwich leads in revenue, while Croissant Butter leads in sales volume. This difference shows why both revenue and quantity sold should be considered when evaluating product performance.
 
 ### 4. Outlet Performance
 
@@ -148,12 +161,12 @@ The five highest-revenue outlets are:
 **Key Findings:**
 
 - Senopati recorded the highest revenue at Rp25.53 million.
-- The five highest-revenue outlets generated Rp121.95 million combined.
-- These outlets contributed approximately 31.04% of total revenue.
+- Senopati also had the highest transaction count among the five outlets.
+- The five outlets generated Rp121.95 million, contributing approximately 31.04% of total revenue.
 
 **Business Insight:**
 
-Senopati can be used as a reference for evaluating other outlets. However, revenue alone is not enough to measure outlet performance. Transaction volume, AOV, and operating costs should also be considered.
+Senopati's revenue lead is accompanied by a higher transaction volume. However, this does not necessarily mean it has the highest average transaction value or operational efficiency. Further comparison using AOV and operating costs would provide a more complete picture.
 
 ### 5. Payment Method Analysis
 
@@ -170,12 +183,12 @@ Senopati can be used as a reference for evaluating other outlets. However, reven
 - QRIS recorded the highest transaction volume and revenue.
 - GoPay ranked second in revenue.
 - QRIS and GoPay contributed approximately 49.84% of total revenue.
-- Digital payment methods (QRIS, GoPay, and OVO) contributed approximately 69.57% of total revenue.
+- QRIS, GoPay, and OVO combined contributed approximately 69.57% of total revenue.
 - QRIS recorded the highest AOV at Rp80,180.
 
 **Business Insight:**
 
-Digital payments play an important role in Sedukopi's sales, particularly QRIS and GoPay. These payment methods account for a substantial share of total revenue.
+QRIS and e-wallet payments (GoPay and OVO) account for a substantial share of Sedukopi's revenue. QRIS also has the highest AOV among the five payment methods, making it an important payment option to monitor.
 
 ## 💡 Business Recommendations
 
@@ -257,6 +270,7 @@ All project files are available in this repository.
 
 **SQL Scripts:**
 
+0. [Create Sales Detail View](SQL/00_Create_Sales_View.sql)
 1. [Overall Sales Analysis](SQL/01_Overall_Sales_Analysis.sql)
 2. [Monthly Sales Trend](SQL/02_Monthly_Sales_Trend.sql)
 3. [Product Performance](SQL/03_Product_Performance.sql)
@@ -286,8 +300,6 @@ Through this project, I gained practical experience in SQL querying, data analys
 ## 👨‍💻 Author
 
 **Iqbal Baihaqy**
-
-Aspiring Data Analyst
 
 - GitHub: [@balemorn](https://github.com/balemorn)
 - Tools: Google BigQuery SQL | Microsoft Power BI
